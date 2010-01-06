@@ -5,6 +5,8 @@ extends 'Scene::Graph::Node';
 
 with 'Scene::Graph::Node::Transforms::Translatable';
 
+__PACKAGE__->meta->make_immutable;
+
 1;
 
 __END__

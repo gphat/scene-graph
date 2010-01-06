@@ -7,11 +7,12 @@ license  'perl';
 
 build_requires 'Test::More';
 
-use 'Geometry::Primitive';
-use 'Forest';
-use 'Moose';
-use 'MooseX::Clone';
-use 'MooseX::Storage';
+requires 'Geometry::Primitive';
+requires 'Moose';
+requires 'MooseX::Clone';
+requires 'MooseX::Storage';
+
+repository 'http://github.com/gphat/scene-graph';
 
 WriteAll;
 

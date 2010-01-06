@@ -19,6 +19,11 @@ It allows the creation of scenes of nodes with translations.  The scene may
 then be traversed using L<Scene::Graph::Traverser>.  It allows iteration over
 a flat array of cloned nodes with all applicable transformations applied.
 
+=head1 WARNING
+
+This module is in the early stages of development is is likely to change
+significantly.  Release early, release often.
+
 =head1 SYNOPSIS
 
     use Scene::Graph::Node;
