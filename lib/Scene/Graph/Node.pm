@@ -1,7 +1,7 @@
 package Scene::Graph::Node;
 use Moose;
 
-with 'MooseX::Clone';
+with qw(MooseX::Clone MooseX::Storage::Deferred);
 
 use Geometry::Primitive::Point;
 

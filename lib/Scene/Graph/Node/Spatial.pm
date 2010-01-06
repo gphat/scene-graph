@@ -1,9 +1,13 @@
 package Scene::Graph::Node::Spatial;
 use Moose;
+use MooseX::Storage;
 
 extends 'Scene::Graph::Node';
 
-with 'Scene::Graph::Node::Transforms::Translatable';
+with qw(
+    Scene::Graph::Node::Transforms::Translatable
+    MooseX::Storage::Deferred
+);
 
 __PACKAGE__->meta->make_immutable;
 

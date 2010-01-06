@@ -1,7 +1,10 @@
 package Scene::Graph::Node::Transform;
 use Moose;
+use MooseX::Storage;
 
 extends 'Scene::Graph::Node';
+
+with 'MooseX::Storage::Deferred';
 
 has 'rotation' => (
     traits => [ 'Number' ],
