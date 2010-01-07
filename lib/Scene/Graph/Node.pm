@@ -1,26 +1,17 @@
 package Scene::Graph::Node;
 use Moose;
 
+extends 'Forest::Tree';
+
 with qw(MooseX::Clone MooseX::Storage::Deferred);
 
+use Forest;
 use Geometry::Primitive::Point;
 
 has 'id' => (
     traits => [ 'Clone' ],
     is => 'ro',
     isa => 'Str'
-);
-
-has 'children' => (
-    traits => [ 'Array', 'NoClone' ],
-    is => 'ro',
-    isa => 'ArrayRef[Scene::Graph::Node]',
-    default => sub { [] },
-    handles => {
-        add_child => 'push',
-        child_count => 'count',
-        is_leaf => 'is_empty'
-    }
 );
 
 has 'is_rotatable' => (
@@ -65,9 +56,7 @@ Perhaps a little code snippet.
 
 =head1 ATTRIBUTES
 
-=head2 children
-
-An arrayref of children of this node.
+=head2 parent
 
 =head1 METHODS
 
@@ -79,9 +68,41 @@ Add a child node to this one.
 
 The number of child nodes this node has.
 
+=head2 clear_children
+
+Removes all children of this node.
+
+=head2 clear_parent
+
+Clear this node's parent
+
+=head2 get_child_at ($index)
+
+Return the child at the $index position.
+
+=head2 has_parent
+
+Returns true if this node has a parent.
+
+=head2 insert_child_at ($index, $child)
+
+Add a child node at the specified index.
+
 =head2 is_leaf
 
 Returns true if this node has no children.
+
+=head2 is_root
+
+Returns true if this node is the root node in a Scene::Graph
+
+=head2 remove_child_at ($index)
+
+Remove the child at the $index position.
+
+=head2 siblings
+
+Return an array reference of all siblings of this node (not including this one)
 
 =head1 AUTHOR
 
