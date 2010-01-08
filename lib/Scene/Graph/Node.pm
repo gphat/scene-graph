@@ -37,6 +37,21 @@ has 'is_translatable' => (
 
 __PACKAGE__->meta->make_immutable;
 
+sub find {
+    my ($self, $predicate) = @_;
+
+    my @nodes;
+    foreach my $child (@{ $self->children }) {
+        push(@nodes, $child) if $predicate->($child);
+
+        unless($child->is_leaf) {
+            push(@nodes, @{ $child->find($predicate) });
+        }
+    }
+
+    return \@nodes;
+}
+
 1;
 
 __END__
@@ -75,6 +90,11 @@ Removes all children of this node.
 =head2 clear_parent
 
 Clear this node's parent
+
+=head2 find (\&func)
+
+Returns an arrayref of Nodes that return true when passed to the provided
+function.
 
 =head2 get_child_at ($index)
 

@@ -3,6 +3,7 @@ Revision history for Scene-Graph
 0.02
     - Add MooseX::Storage roles
     - Make the Node a Forest::Tree (and document methods)
+    - Add find method to Node
 
 0.01    Date/time
         First version, released on an unsuspecting world.
