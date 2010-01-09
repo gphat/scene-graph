@@ -35,8 +35,6 @@ has 'is_translatable' => (
     default => 0
 );
 
-__PACKAGE__->meta->make_immutable;
-
 sub find {
     my ($self, $predicate) = @_;
 
@@ -63,6 +61,8 @@ sub find_by_id {
     scalar(@{ $nodes }) ? $nodes->[0] : undef;
 }
 
+__PACKAGE__->meta->make_immutable;
+
 1;
 
 __END__
@@ -77,12 +77,18 @@ Perhaps a little code snippet.
 
     use Scene::Graph;
 
-    my $foo = Scene::Graph->new();
+    my $foo = Scene::Graph->new;
     ...
 
 =head1 ATTRIBUTES
 
+=head2 id
+
+The identifier of this node.
+
 =head2 parent
+
+The parent of this node, if there is one.
 
 =head1 METHODS
 
