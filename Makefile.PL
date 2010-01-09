@@ -12,6 +12,8 @@ requires 'Moose';
 requires 'MooseX::Clone';
 requires 'MooseX::Storage';
 
+test_requires 'JSON::Any';
+
 repository 'http://github.com/gphat/scene-graph';
 
 WriteAll;
