@@ -1,6 +1,6 @@
 use Test::More;
+use strict;
 
-use Scene::Graph;
 use Scene::Graph::Node;
 use Scene::Graph::Node::Spatial;
 use Scene::Graph::Node::Transform;

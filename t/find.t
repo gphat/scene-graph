@@ -1,4 +1,5 @@
 use Test::More;
+use strict;
 
 use Scene::Graph::Node;
 
