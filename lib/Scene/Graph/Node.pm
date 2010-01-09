@@ -52,6 +52,17 @@ sub find {
     return \@nodes;
 }
 
+sub find_by_id {
+    my ($self, $id) = @_;
+
+    my $nodes = $self->find(sub {
+        my $n = shift;
+        return 0 unless defined($n->id);
+        $n->id eq $id;
+    });
+    scalar(@{ $nodes }) ? $nodes->[0] : undef;
+}
+
 1;
 
 __END__
@@ -95,6 +106,11 @@ Clear this node's parent
 
 Returns an arrayref of Nodes that return true when passed to the provided
 function.
+
+=head2 find_by_id ($id)
+
+Returns the first child (searching all children recursively!) with the supplied
+id.  If nothing is found then undef is returned.
 
 =head2 get_child_at ($index)
 
