@@ -35,6 +35,15 @@ has 'is_translatable' => (
     default => 0
 );
 
+sub clear_children {
+    my ($self) = @_;
+
+    my $count = $self->child_count - 1;
+    for(0..$count) {
+        $self->remove_child_at($_) if defined($self->get_child_at($_));
+    }
+}
+
 sub find {
     my ($self, $predicate) = @_;
 
