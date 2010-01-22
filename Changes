@@ -5,6 +5,7 @@ Revision history for Scene-Graph
     - Make the Node a Forest::Tree (and document methods)
     - Add find method to Node
     - Add clear_children
+    - Add Geometry::AffineTransform dep
 
 0.01    Date/time
         First version, released on an unsuspecting world.
