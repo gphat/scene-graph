@@ -4,6 +4,7 @@ use Moose::Role;
 use Geometry::Primitive::Point;
 
 has '+is_translatable' => (
+    is => 'ro',
     default => 1
 );
 
