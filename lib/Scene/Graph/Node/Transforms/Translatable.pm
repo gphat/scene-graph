@@ -3,11 +3,6 @@ use Moose::Role;
 
 use Geometry::Primitive::Point;
 
-has '+is_translatable' => (
-    is => 'ro',
-    default => 1
-);
-
 has 'origin' => (
     is => 'ro',
     isa => 'Geometry::Primitive::Point',
@@ -34,8 +29,7 @@ Scene::Graph::Transforms::Translatable - A Translatable Node Role
 
 =head1 DESCRIPTION
 
-Requires that the composing class have a C<translate> method and sets the
-C<is_translatable> attribute to true.
+Adds a C<translate> method to the class to which it is added.
 
 =head1 AUTHOR
 

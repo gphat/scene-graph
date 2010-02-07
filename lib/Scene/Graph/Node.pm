@@ -14,27 +14,6 @@ has 'id' => (
     isa => 'Str'
 );
 
-has 'is_rotatable' => (
-    traits => [ 'Clone' ],
-    is => 'ro',
-    isa => 'Bool',
-    default => 0
-);
-
-has 'is_scalable' => (
-    traits => [ 'Clone' ],
-    is => 'ro',
-    isa => 'Bool',
-    default => 0
-);
-
-has 'is_translatable' => (
-    traits => [ 'Clone' ],
-    is => 'ro',
-    isa => 'Bool',
-    default => 0
-);
-
 sub clear_children {
     my ($self) = @_;
 

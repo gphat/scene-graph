@@ -52,15 +52,16 @@ sub _walk_scene {
     # Clone the node, as we'll be manipulating it.
     my $n = $snode->clone;
 
-    if($n->is_translatable) {
+    if($n->does('Scene::Graph::Node::Transforms::Translatable')) {
         my $curr_ident = $self->identity;
-        # Ask the node to translate itself based on our current identity
-        # matrix.
+        # Ask the cloned node to translate itself based on our current
+        # identity matrix.
         $n->translate($curr_ident);
 
         # Save away the current state...
         $self->save;
-        # Grab the unsullied node's origin
+
+        # Grab the original node's origin
         my $o = $snode->origin;
         # Translate according to the same...
         $self->identity($curr_ident->clone->translate($o->x, $o->y));
@@ -78,7 +79,7 @@ sub _walk_scene {
     # rather than push/unshift and still get the root node first
     push(@nodes, $n);
 
-    if($n->is_translatable) {
+    if($n->does('Scene::Graph::Node::Transforms::Translatable')) {
         # Since we modified the identity, restore it
         $self->restore;
     }
