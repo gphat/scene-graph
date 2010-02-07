@@ -3,11 +3,6 @@ use Moose::Role;
 
 requires 'scale';
 
-has '+is_scalable' => (
-    default => 1
-);
-
-
 1;
 
 __END__
@@ -18,8 +13,7 @@ Scene::Graph::Transforms::Scalable - A Scalable Node Role
 
 =head1 DESCRIPTION
 
-Requires that the composing class have a C<scale> method and sets the
-C<is_scalable> attribute to true.
+Requires that the composing class have a C<scale> method .
 
 =head1 AUTHOR
 

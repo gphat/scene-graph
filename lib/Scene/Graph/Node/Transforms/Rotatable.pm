@@ -3,10 +3,6 @@ use Moose::Role;
 
 requires 'rotate';
 
-has '+is_rotatable' => (
-    default => 1
-);
-
 1;
 
 __END__
@@ -17,8 +13,7 @@ Scene::Graph::Transforms::Rotatable - A Rotatable Node Role
 
 =head1 DESCRIPTION
 
-Requires that the composing class have a C<rotate> method and sets the
-C<is_rotatable> attribute to true.
+Requires that the composing class have a C<rotate> method.
 
 =head1 AUTHOR
 
