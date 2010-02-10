@@ -5,9 +5,6 @@ extends 'Forest::Tree';
 
 with qw(MooseX::Clone MooseX::Storage::Deferred);
 
-use Forest;
-use Geometry::Primitive::Point;
-
 has 'id' => (
     traits => [ 'Clone' ],
     is => 'ro',
