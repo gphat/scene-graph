@@ -1,12 +1,14 @@
 package Scene::Graph::Node::Transforms::Translatable;
 use Moose::Role;
 
+use Scene::Graph::Types qw(Point);
 use Geometry::Primitive::Point;
 
 has 'origin' => (
     is => 'ro',
-    isa => 'Geometry::Primitive::Point',
-    default => sub { Geometry::Primitive::Point->new(x => 0, y => 0) }
+    isa => Point,
+    default => sub { Geometry::Primitive::Point->new(x => 0, y => 0) },
+    coerce => 1
 );
 
 sub translate {

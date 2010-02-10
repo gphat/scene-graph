@@ -8,20 +8,14 @@ use Scene::Graph::Traverser;
 use Geometry::Primitive::Point;
 
 my $root = Scene::Graph::Node->new(id => 'grandma');
-my $trans = Scene::Graph::Node::Spatial->new(id => 'mom');
-$trans->origin->x(5);
-$trans->origin->y(5);
+my $trans = Scene::Graph::Node::Spatial->new(id => 'mom', origin => [ 5, 5 ]);
 $root->add_child($trans);
 
-my $child = Scene::Graph::Node::Spatial->new(id => 'daughter');
-$child->origin->x(5);
-$child->origin->y(5);
+my $child = Scene::Graph::Node::Spatial->new(id => 'daughter', origin => [ 5, 5 ]);
 
 $trans->add_child($child);
 
-my $child2 = Scene::Graph::Node::Spatial->new(id => 'son');
-$child2->origin->x(2);
-$child2->origin->y(2);
+my $child2 = Scene::Graph::Node::Spatial->new(id => 'son', origin => [ 2, 2 ]);
 
 $trans->add_child($child2);
 
