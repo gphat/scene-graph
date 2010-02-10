@@ -11,6 +11,7 @@ requires 'Geometry::Primitive';
 requires 'Moose';
 requires 'MooseX::Clone';
 requires 'MooseX::Storage';
+requires 'MooseX::Types';
 requires 'Geometry::AffineTransform';
 
 test_requires 'JSON::Any';
