@@ -63,8 +63,17 @@ sub _walk_scene {
 
         # Grab the original node's origin
         my $o = $snode->origin;
+        # And it's inside bounding box
+        my $bb = $snode->inside_bounding_box;
         # Translate according to the same...
-        $self->identity($curr_ident->clone->translate($o->x, $o->y));
+        $self->identity(
+            $curr_ident->clone->translate(
+                # We add the node + it's bounding box origin because the
+                # padding, margins and borders move it
+                $o->x + $bb->origin->x,
+                $o->y + $bb->origin->y
+            )
+        );
     }
 
     my @nodes;

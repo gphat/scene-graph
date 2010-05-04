@@ -8,6 +8,8 @@ Revision history for Scene-Graph
     - Add Geometry::AffineTransform dep
     - Use does to determine if a node is translatable
     - Clean up some useless includes
+    - Translate child nodes x,y by parent's origin PLUS the parents bounding
+      box origin.  this factors in padding, margins and borders
 
 0.01    Date/time
         First version, released on an unsuspecting world.

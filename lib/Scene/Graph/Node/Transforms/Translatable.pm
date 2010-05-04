@@ -16,6 +16,7 @@ sub translate {
 
     my $o = $self->origin;
     my ($x, $y) = $transformer->transform($o->x, $o->y);
+
     $self->origin->x($x);
     $self->origin->y($y);
 }
